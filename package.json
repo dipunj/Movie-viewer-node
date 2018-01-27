@@ -1,0 +1,25 @@
+{
+  "name": "hack36",
+  "version": "1.0.0",
+  "description": "This repository contains code for the hack36 project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/packetChor/hack36.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/packetChor/hack36/issues"
+  },
+  "homepage": "https://github.com/packetChor/hack36#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "find": "^0.2.8",
+    "http": "0.0.0",
+    "path": "^0.12.7"
+  }
+}
