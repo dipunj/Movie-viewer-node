@@ -1,12 +1,18 @@
-const find = require('find');
-const path = require('path');
-const fs = require('fs');
+const find    = require('find');
+const path    = require('path');
+const fs      = require('fs');
 const express = require('express');
-var app = express();
-var things = require('./things.js');
+const argv    = require('yargs').argv
+var app       = express();
+var things    = require('./things.js');
 app.use('/', things);
 
-var dirname = "../testing_dir/";
+const dirname = argv.dir || "./";
+const cache_dir = argv.cachedir || "../node-file-server"
+
+console.log(dirname);
+console.log(cache_dir);
+var err_callback = function (err) {if (err) throw err;}
 
 
 /**
@@ -21,7 +27,7 @@ function getFiles(regex,dirname) {
 	var list = [];
 	var file = find.fileSync(regex, dirname);
 	for (var i = file.length - 1; i >= 0; i--) {
-		list.push(path.basename(file[i]));
+		list.push(path.basename(file[i],path.extname(file[i])));
 	}
 	return list;
 }
@@ -29,18 +35,14 @@ function getFiles(regex,dirname) {
 var videos = getFiles(/\.mp4$|\.mkv$/,dirname);
 var documents = getFiles(/\.pdf$|\.txt$/,dirname);
 
-var err_callback = function (err) {if (err) throw err;}
 
 
 // Save the created data base
-fs.open("../node-file-server/videos.json", 'w', err_callback);
-fs.open("../node-file-server/documents.json", 'w', err_callback);
+fs.open(`${cache_dir}/videos.json`, 'w', err_callback);
+fs.open(`${cache_dir}/documents.json`, 'w', err_callback);
 fs.writeFile("../node-file-server/videos.json", videos, 'utf8', err_callback)
 fs.writeFile("../node-file-server/documents.json", documents, 'utf8', err_callback)
 
 console.log("Database files successfully written to disk");
 
-
-app.listen(3000, function () {
-	console.log('Example app listening on port 3000!');
-});
+app.listen(3000, function () { console.log('Node server started on port 3000!') });
