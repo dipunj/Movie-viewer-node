@@ -6,9 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'node-FS', category : 'movies', data: app.videos});
 });
 
-router.get('tv_shows', function(req, res, next) {
-  res.render('index', { title: 'node-FS', category : 'movies', data: app.videos});
-});
+// router.get('/', function(req, res, next) {
+  // res.render('index', { title: 'node-FS', category : 'document', data: app.documents});
+// });
 // router.get('/movies.html', function (req, res) {
 // 	res.render('/movies.html',{ root: __dirname + "/", videos:videos})
 // });
