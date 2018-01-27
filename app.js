@@ -4,16 +4,15 @@ const fs      = require('fs');
 const express = require('express');
 const argv    = require('yargs').argv
 var app       = express();
-var things    = require('./things.js');
-app.use('/', things);
+var routes    = require('./routes.js');
+app.use('/', routes);
 
 const dirname = argv.dir || "./";
 const cache_dir = argv.cachedir || "../node-file-server"
 
-console.log(dirname);
-console.log(cache_dir);
+console.log(`Using ${dirname} as root node for database...`);
+console.log("Using" + cache_dir + "to store JSON db");
 var err_callback = function (err) {if (err) throw err;}
-
 
 /**
  * Recursively Gets all the files matching regex in dirname
