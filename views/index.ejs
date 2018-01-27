@@ -8,6 +8,9 @@
 	<title>MULTIMEDIA FILE BROWSER</title>
 </head>
 <body>
+
+
+	<!-- nav bar -->
 	<nav class="navbar navbar-dark bg-dark navbar-expand-sm py-3 fixed-top">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
 			<span class="navbar-toggler-icon"></span>
@@ -32,12 +35,13 @@
 			</form>
 		</div>
 	</nav>
-	<br/>
 
-	<div class="container">
+
+	<!-- Content -->
+	<div class="container" style="margin-top:10vw">
 		<div class="row">
 			<% for(var i=0; i < data.length; i++) { %>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
+			<div class="col-lg-4 col-sm-6 portfolio-item" style="margin-top:30px">
 				<div class="card h-100">
 					<a href="#"><img class="card-img-top" src="http://placehold.it/300x200" alt=""></a>
 					<div class="card-body">
@@ -50,6 +54,30 @@
 			</div>
 			<% } %>
 		</div>
+		<!-- pagination -->
+		<ul class="pagination justify-content-center">
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+					<span class="sr-only">Previous</span>
+				</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#">1</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#">2</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#">3</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+					<span class="sr-only">Next</span>
+				</a>
+			</li>
+		</ul>
 	</div>
 </body>
 <!---CDN Links-->
