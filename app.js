@@ -4,14 +4,15 @@ const fs      = require('fs');
 const express = require('express');
 const argv    = require('yargs').argv
 var app       = express();
-var routes    = require('./routes.js');
+var routes    = require('./routes/index.js');
 var ejs       = require('ejs');
-
 
 // Only requests to / will be handled by routes
 app.use('/', routes);
 
 // Set view engine to EJS
+app.use(express.static('views'));
+app.use(express.static('public'));
 app.set('view engine','ejs')
 
 const dirname = argv.dir || "./";
@@ -40,7 +41,10 @@ function getFiles(regex,dirname) {
 
 var videos = getFiles(/\.mp4$|\.mkv$/,dirname);
 var documents = getFiles(/\.pdf$|\.txt$/,dirname);
-console.log(videos);
+
+exports.videos = videos;
+exports.documents = documents;
+
 app.get('/movies.html', function (req, res) {
 	res.sendFile('/movies.html',{ root: __dirname + "/" })
 });

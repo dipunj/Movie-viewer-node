@@ -1,0 +1,33 @@
+body {
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00B7FF;
+}
+
+/*!
+ * Start Bootstrap - 3 Col Portfolio (https://startbootstrap.com/template-overviews/3-col-portfolio)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-3-col-portfolio/blob/master/LICENSE)
+ */
+
+ body {
+ 	margin-top: 100px 
+ 	padding-top: 20px;
+ }
+
+ @media (min-width: 992px) {
+ 	body {
+ 		padding-top: 56px;
+ 	}
+ }
+
+ .portfolio-item {
+ 	margin: 500px;
+ }
+
+ .pagination {
+ 	margin-bottom: 30px;
+ }
