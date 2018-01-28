@@ -6,7 +6,13 @@ const argv    = require('yargs').argv
 var app       = express();
 var routes    = require('./routes/index.js');
 var ejs       = require('ejs');
-var omdb      = require('omdb');
+// var omdb      = require('omdb');
+// 
+// FIX this : omdb api doesn't work behind proxy
+
+
+
+// 
 // Only requests to / will be handled by routes
 
 app.use('/', routes);
